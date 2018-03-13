@@ -1,6 +1,9 @@
 ud120-projects
 ==============
 
+### This version is FULL compatible with Python 3!!                   ###
+### All the references in: https://github.com/udacity/ud120-projects  ###
+
 Starter project code for students taking Udacity ud120
 ## Intro To Machine Learning (ud120) Projects 
 Intro To Machine Learning (ud120) Projects
