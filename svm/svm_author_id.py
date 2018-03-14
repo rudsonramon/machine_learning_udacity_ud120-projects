@@ -26,14 +26,34 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #One way to speed up an algorithm is to train it on a smaller training dataset.
 #The tradeoff is that the accuracy almost always goes down when you do this.
 #Let’s explore this more concretely: add in the following two lines immediately before training your classifier. 
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100] 
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100] 
+"""
+    REDUCING THE DATA TO IMPROVE THE PERFORMANCE
+"""
+### organize the feature to avoid any error message
+#qtd_features = len(features_train)
+#qtd_features = qtd_features/100
+#qtd_features = int(qtd_features)
+#### the same with the label
+#qtd_labels = len(labels_train)
+#qtd_labels = qtd_labels/100
+#qtd_labels = int(qtd_labels)
+##print('qtd_features: ==>> ', qtd_features)
+##print('qtd_labels : ==>> ', qtd_labels )#features_train = features_train[:qtd_features]
+#labels_train = labels_train[:qtd_labels] 
 
+#print(features_train[:qtd_features])
 #########################################################
 ### your code goes here ###
 # clf = SVC(kernel="linear")
 
-clf = SVC(kernel='linear')
+#clf = SVC(kernel='linear')
+#clf = SVC(kernel='rbf')
+#clf = SVC(kernel='rbf', C=10.0) ## SVM accuracy: 0.6160409556313993
+#clf = SVC(kernel='rbf', C=100)   ## SVM accuracy: 0.6160409556313993
+#clf = SVC(kernel='rbf', C=1000)  ## SVM accuracy: 0.8213879408418657
+clf = SVC(kernel='rbf', C=10000) ## SVM accuracy:  0.8924914675767918
 t0 = time()
 
 """

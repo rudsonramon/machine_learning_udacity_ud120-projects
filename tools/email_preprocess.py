@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split    #   from sklearn import 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
-
 def preprocess(words_file = "../tools/word_data_unix.pkl", authors_file="../tools/email_authors.pkl"):
     """ 
         this function takes a pre-made list of email texts (by default word_data.pkl)
