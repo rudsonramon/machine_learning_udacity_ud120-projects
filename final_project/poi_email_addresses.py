@@ -1,4 +1,5 @@
 def poiEmails():
+    ''' find e-mail list '''
     email_list = ["kenneth_lay@enron.net",    
             "kenneth_lay@enron.com",
             "klay.enron@enron.com",
