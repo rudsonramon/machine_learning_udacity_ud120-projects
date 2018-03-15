@@ -1,7 +1,8 @@
 #!/usr/bin/python
-
+# -*- coding: utf-8 -*-
 #######
-##  find more detail at: http://scikit-learn.org
+##  ALGORITM USED: from sklearn.ensemble import AdaBoostClassifier
+##  find more detail at: http://scikit-learn.org/stable/modules/ensemble.html#adaboost
 #######
 
 import matplotlib.pyplot as plt
@@ -33,49 +34,29 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
-
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor
 from sklearn.metrics import accuracy_score
 from time import time
 
-####################################
-#####   KNeighborsClassifier
-####################################
-#clf = KNeighborsClassifier()
-#t0 = time()
-#clf.fit(features_train, labels_train)
-#print("default knn training time:", round(time()-t0, 3), "s")
-#t0 = time()
-#pred = clf.predict(features_test)
-#print("predict time:", round(time()-t0, 3), "s")
+#features_train, labels_train = RandomForestClassifier.make_classification(n_samples=10, n_features=1,
+#                                                                          n_informative=2, n_redundant=0,
+#                                                                          random_state=0, shuffle=False)
 
-####################################
-#####   AdaBoostClassifier
-####################################
+clf = AdaBoostRegressor(DecisionTreeRegressor(max_depth=4),
+                          n_estimators=300, random_state=rng)
+#clf = RandomForestClassifier(max_depth=2, random_state=0)
 t0 = time()
-clf = AdaBoostClassifier(n_estimators=30,learning_rate=0.4)
 clf.fit(features_train, labels_train)
-print("default adaBoost training time:", round(time()-t0, 3), "s")
+print("training time:", round(time()-t0, 3), "s")
 t0 = time()
 pred = clf.predict(features_test)
-print("predict time:", round(time()-t0, 3), "s")
 
-####################################
-#####   RandomForestClassifier
-####################################
-#t0 = time()
-#clf = RandomForestClassifier()
-#clf.fit(features_train, labels_train)
-#print("default randomForest training time:", round(time()-t0, 3), "s")
-#t0 = time()
-#pred = clf.predict(features_test)
-#print("predict time:", round(time()-t0, 3), "s")
+print("predict time:", round(time()-t0, 3), "s")
 
 ## call the method to show the updated chart.
 
-print("Accuracy precision for the Algoritm: %r" % accuracy_score(pred, labels_test))
+print("Accuracy precision for Random Forest: %r" % accuracy_score(pred, labels_test))
 print("10th: %r, 26th: %r, 50th: %r" % (pred[10], pred[26], pred[50]))
 print("No. of predicted to be in the 'Chris'(1): %r" % sum(pred))
 
@@ -83,5 +64,5 @@ print("No. of predicted to be in the 'Chris'(1): %r" % sum(pred))
 try:
     prettyPicture(clf, features_test, labels_test)
 except NameError:
-    print("unable to produce boundary")
     pass
+
