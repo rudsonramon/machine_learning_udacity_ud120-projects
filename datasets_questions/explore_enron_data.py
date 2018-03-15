@@ -14,9 +14,15 @@
     enron_data["SKILLING JEFFREY K"]["bonus"] = 5600000
     
 """
+# =============================================================================
+#   1) Executar o arquivo ..\final_project/dos2unix.txt
+#   2) Alterar o nome do arquivo para o novo arquivo criado: final_project_dataset_unix.pkl
+# =============================================================================
 
 import pickle
+#import cPickle as pickle
+enron_data = pickle.load(open('../final_project/final_project_dataset_unix.pkl', 'rb'))
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))
-
-
+for label in enron_data:
+    # print(enron_data["SKILLING JEFFREY K"])
+    print(enron_data[label])
