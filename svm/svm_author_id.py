@@ -20,7 +20,6 @@ from sklearn.metrics import accuracy_score
 #XXX: features_train and features_test are the features for the training
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
-
 features_train, features_test, labels_train, labels_test = preprocess()
 
 #One way to speed up an algorithm is to train it on a smaller training dataset.
